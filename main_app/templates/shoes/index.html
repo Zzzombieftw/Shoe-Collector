@@ -13,15 +13,15 @@
 </section>
 
 <section class="card-container">
-  {% if shoe.photo.url %}
-    <img src="{{shoe.photo.url}}" alt="">
-  {% else %}
-    <img 
-      src="{% static 'images/place-holder.jpg' %}" 
-      alt="A skater boy cat"
-    >
-  {% endif %}
     {% for shoe in shoes %}
+      {% if shoe.photo.url %}
+        <img src="{{shoe.photo.url}}" alt="">
+      {% else %}
+        <img 
+          src="{% static 'images/place-holder.jpg' %}" 
+          alt="A skater boy cat"
+        >
+      {% endif %}
       <div class="card">
         <a href="{% url 'shoes_detail' shoe.id %}">
         <div class="card-content">

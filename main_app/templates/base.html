@@ -23,11 +23,16 @@
     </div>
     <nav>
       <ul>
-        <li><a href="{% url 'about' %}">About</a></li>
+      {% if user.is_authenticated %}
         <li><a href="{% url  'shoes_create'%}"> Add A Shoe</a></li>
         <li><a href="{% url 'shoes_index' %}">All Shoes</a></li>
+      
+      {% else %}
+        <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'home' %}">Login</a></li> 
         <li><a href="{% url 'signup' %}">Sign Up</a></li>
+      
+      {% endif %}
         
       </ul>
     </nav>
