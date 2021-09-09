@@ -29,7 +29,7 @@ class Shoe(models.Model):
     brand = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     colorway = models.CharField(max_length=100)
-    size = models.CharField(max_length=20 ,choices=Size_Choices, default= '4' )
+    size = models.CharField(max_length=20 ,choices=Size_Choices, default= '6' )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

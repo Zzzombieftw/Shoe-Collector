@@ -76,7 +76,7 @@ def add_photo(request, shoe_id):
 
 class ShoeCreate(CreateView):
     model = Shoe
-    fields = ['name', 'brand', 'colorway', 'size']
+    fields = '__all__'
     success_url='/shoes/'
 
 
