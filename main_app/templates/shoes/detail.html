@@ -19,9 +19,13 @@
     >
   </div>
   <div class="cat-details">
-    <h1>{{ shoe.name }}</h1>
-    <h1>{{ shoe.brand }}</h1>
-    
+    <h1>{{ shoe.name }}</h1> <hr />
+    Brand: <h1>{{ shoe.brand }}</h1></h1> <hr />
+    Size: <h1>{{ shoe.size }}</h1></h1> <hr />
+     <div class="cat-actions">
+      <a href="{% url 'shoes_update' shoe.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'shoes_delete' shoe.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 

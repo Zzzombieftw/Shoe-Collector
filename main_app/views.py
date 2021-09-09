@@ -22,3 +22,11 @@ class ShoeCreate(CreateView):
     model = Shoe
     fields = '__all__'
     success_url='/shoes/'
+
+class ShoeUpdate(UpdateView):
+    model = Shoe
+    fields ='__all__'
+
+class ShoeDelete(DeleteView):
+    model = Shoe
+    success_url = '/shoes/'
