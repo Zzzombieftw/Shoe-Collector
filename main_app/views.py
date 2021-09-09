@@ -5,6 +5,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create the view
 class Home(LoginView):
@@ -42,11 +43,12 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'signup.html', context)
 
-class ShoeCreate(CreateView):
+class ShoeCreate(LoginRequiredMixin,CreateView):
     model = Shoe
     fields = '__all__'
     success_url='/shoes/'
 
+@LoginRequiredMixin
 class ShoeUpdate(UpdateView):
     model = Shoe
     fields ='__all__'
@@ -54,6 +56,7 @@ class ShoeUpdate(UpdateView):
     def form_valid(self, form):
         return super().form_valid(form)
 
+@LoginRequiredMixin
 class ShoeDelete(DeleteView):
     model = Shoe
     success_url = '/shoes/'
