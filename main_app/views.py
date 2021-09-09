@@ -46,7 +46,7 @@ def signup(request):
   # A bad POST or a GET request, so render signup.html with an empty form
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
-  return render(request, 'signup.html', context)
+  return render(request, 'signup.html',)
 
 
 def add_photo(request, shoe_id):
@@ -74,13 +74,13 @@ def add_photo(request, shoe_id):
       print('An error occurred uploading file to S3: %s' % err)
   return redirect('shoes_detail', shoe_id=shoe_id)
 
-class ShoeCreate(LoginRequiredMixin,CreateView):
+class ShoeCreate(CreateView):
     model = Shoe
     fields = ['name', 'brand', 'colorway', 'size']
     success_url='/shoes/'
 
 
-class ShoeUpdate(LoginRequiredMixin, UpdateView):
+class ShoeUpdate( UpdateView):
     model = Shoe
     fields = ['name', 'brand', 'colorway', 'size']
 
@@ -88,6 +88,6 @@ class ShoeUpdate(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
 
-class ShoeDelete(LoginRequiredMixin,DeleteView):
+class ShoeDelete(DeleteView):
     model = Shoe
     success_url = '/shoes/'
