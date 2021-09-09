@@ -13,23 +13,25 @@
 </section>
 
 <section class="card-container">
-  {% for shoe in shoes %}
-    <div class="card">
-      <a href="{% url 'shoes_detail' shoe.id %}">
-      <div class="card-content">
-        <div class="card-img-container">
-          <img 
-            src="{% static 'images/place-holder.jpg' %}" 
-            alt="A skater boy cat"
-          >
+  {% if shoe.photo.url %}
+    <img src="{{shoe.photo.url}}" alt="">
+  {% else %}
+    <img 
+      src="{% static 'images/place-holder.jpg' %}" 
+      alt="A skater boy cat"
+    >
+  {% endif %}
+    {% for shoe in shoes %}
+      <div class="card">
+        <a href="{% url 'shoes_detail' shoe.id %}">
+        <div class="card-content">
+          <div class="card-img-container">
+          </div>
+          <h2 class="card-title">{{ shoe.name }}</h2>
+        </a>
         </div>
-        <h2 class="card-title">{{ shoe.name }}</h2>
-      
-      </a>
-       
       </div>
-    </div>
-  {% endfor %}
+    {% endfor %}
 </section>
 
 {% endblock %}
