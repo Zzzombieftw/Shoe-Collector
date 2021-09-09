@@ -13,19 +13,37 @@
 
 <section class="cat-container">
   <div class="cat-img">
+{% if shoe.photo.url %}
+    <img src="{{shoe.photo.url}}" alt="" class="usr-img">
+{% else %}
     <img 
       src="{% static 'images/place-holder.jpg' %}" 
       alt="A skater boy cat"
     >
-  </div>
-  <div class="cat-details">
+{% endif %}
+    </div>
+    <div class="cat-details">
     <h1>{{ shoe.name }}</h1> <hr />
     Brand: <h1>{{ shoe.brand }}</h1></h1> <hr />
     Size: <h1>{{ shoe.size }}</h1></h1> <hr />
-     <div class="cat-actions">
-      <a href="{% url 'shoes_update' shoe.id %}" class="btn warn">Edit</a>
-      <a href="{% url 'shoes_delete' shoe.id %}" class="btn danger">Delete</a>
+    <div class="cat-actions">
+    <a href="{% url 'shoes_update' shoe.id %}" class="btn warn">Edit</a>
+    <a href="{% url 'shoes_delete' shoe.id %}" class="btn danger">Delete</a>
     </div>
+      <h3>Change {{ shoe.name }}'s photo</h3>
+    <p id="file-name"></p>
+    <form 
+      action="{% url 'add_photo' shoe.id %}"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      {% csrf_token %}
+      <label class="btn secondary">
+        Choose photo
+        <input type="file" name="photo-file" id="file-input">
+      </label>
+      <button type="submit" class="btn submit">Upload Photo</button>
+    </form>
   </div>
 </section>
 
