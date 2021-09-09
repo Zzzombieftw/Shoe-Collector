@@ -19,12 +19,12 @@ class Home(LoginView):
 def about(request):
   return render(request, 'about.html')
 
-@login_required
+
 def shoes_index(request):
     shoes = Shoe.objects.filter(user=request.user)
     return render(request, 'shoes/index.html', {'shoes': shoes})
 
-@login_required
+
 def shoes_detail(request, shoe_id):
     shoe = Shoe.objects.get(id = shoe_id)
     return render(request, 'shoes/detail.html', { 'shoe': shoe })
