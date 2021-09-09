@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shoe Collector</title>
-</head>
-<body>
-  	<h1>About the shoe Collector</h1>
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}"/>
+{% endblock %}
+
+
+{% block content %}
+<body class ='about-pg'>
+    <h1>
+        About the Sneaker Collection
+    </h1>
+    <h3>
+        This is the best Sneaker of All Time
+    </h3>
+
 </body>
-</html>
+{% endblock %}
+

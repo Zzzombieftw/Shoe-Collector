@@ -7,3 +7,7 @@ def home(request):
 
 def about(request):
   return render(request, 'about.html')
+
+def shoes_index(request):
+    # sneakers = Sneaker.objects.all()
+    return render(request, 'shoe/index.html', {'shoes': shoes})
