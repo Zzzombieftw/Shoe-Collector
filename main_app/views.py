@@ -4,6 +4,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 # Create the view
 class Home(LoginView):
@@ -12,10 +13,12 @@ class Home(LoginView):
 def about(request):
   return render(request, 'about.html')
 
+@login_required
 def shoes_index(request):
-    shoes = Shoe.objects.all()
+    shoes = Shoe.objects.filter(user=request.user)
     return render(request, 'shoes/index.html', {'shoes': shoes})
 
+@login_required
 def shoes_detail(request, shoe_id):
     shoe = Shoe.objects.get(id = shoe_id)
     return render(request, 'shoes/detail.html', { 'shoe': shoe })
