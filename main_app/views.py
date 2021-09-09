@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Shoe
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
@@ -19,6 +19,25 @@ def shoes_index(request):
 def shoes_detail(request, shoe_id):
     shoe = Shoe.objects.get(id = shoe_id)
     return render(request, 'shoes/detail.html', { 'shoe': shoe })
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      user = form.save()
+      # This is how we log a user in
+      login(request, user)
+      return redirect('shoes_index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'signup.html', context)
 
 class ShoeCreate(CreateView):
     model = Shoe
