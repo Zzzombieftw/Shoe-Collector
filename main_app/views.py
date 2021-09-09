@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import Shoe
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 
 # Create the view
 class Home(LoginView):
