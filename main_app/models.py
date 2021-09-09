@@ -37,3 +37,11 @@ class Shoe(models.Model):
 
     def get_absolute_url(self):
         return reverse('shoes_detail', kwargs={'shoe_id': self.id})
+
+
+class Photo(models.Model):
+  url = models.CharField(max_length=250)
+  shoe = models.OneToOneField(Shoe, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return f"Photo for shoe_id: {self.shoe_id} @{self.url}"
