@@ -46,7 +46,7 @@ def signup(request):
   # A bad POST or a GET request, so render signup.html with an empty form
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
-  return render(request, 'signup.html',)
+  return render(request, 'signup.html', context)
 
 
 def add_photo(request, shoe_id):

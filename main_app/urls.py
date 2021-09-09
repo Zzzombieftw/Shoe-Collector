@@ -12,6 +12,4 @@ urlpatterns = [
     path('shoes/<int:pk>/delete/', views.ShoeDelete.as_view(), name='shoes_delete'),
     path('accounts/signup/', views.signup, name='signup'),
     path('shoes/<int:shoe_id>/add_photo/', views.add_photo, name='add_photo'),
-
-
 ]
