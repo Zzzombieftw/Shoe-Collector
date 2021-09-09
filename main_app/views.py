@@ -45,18 +45,18 @@ def signup(request):
 
 class ShoeCreate(LoginRequiredMixin,CreateView):
     model = Shoe
-    fields = '__all__'
+    fields = ['name', 'brand', 'colorway', 'size']
     success_url='/shoes/'
 
-@LoginRequiredMixin
-class ShoeUpdate(UpdateView):
+
+class ShoeUpdate(LoginRequiredMixin, UpdateView):
     model = Shoe
-    fields ='__all__'
+    fields = ['name', 'brand', 'colorway', 'size']
 
     def form_valid(self, form):
         return super().form_valid(form)
 
-@LoginRequiredMixin
-class ShoeDelete(DeleteView):
+
+class ShoeDelete(LoginRequiredMixin,DeleteView):
     model = Shoe
     success_url = '/shoes/'
