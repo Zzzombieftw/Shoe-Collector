@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from .models import Shoe
 from django.views.generic import CreateView, UpdateView, DeleteView
-
+from django.contrib.auth.views import LoginView
 
 # Create the view
-def home(request):
-  return render(request, 'home.html')
+class Home(LoginView):
+  template_name = 'home.html'
 
 def about(request):
   return render(request, 'about.html')
@@ -26,6 +26,9 @@ class ShoeCreate(CreateView):
 class ShoeUpdate(UpdateView):
     model = Shoe
     fields ='__all__'
+
+    def form_valid(self, form):
+        return super().form_valid(form)
 
 class ShoeDelete(DeleteView):
     model = Shoe
