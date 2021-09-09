@@ -13,8 +13,9 @@
 </section>
 
 <section class="card-container">
-  {% for cat in cats %}
+  {% for shoe in shoes %}
     <div class="card">
+      <a href="/shoes/{{shoe.id}}">
       <div class="card-content">
         <div class="card-img-container">
           <img 
@@ -22,7 +23,9 @@
             alt="A skater boy cat"
           >
         </div>
-        <h2 class="card-title">{{ cat.name }}</h2>
+        <h2 class="card-title">{{ shoe.name }}</h2>
+      
+      </a>
        
       </div>
     </div>
