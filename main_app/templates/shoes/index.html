@@ -15,7 +15,7 @@
 <section class="card-container">
   {% for shoe in shoes %}
     <div class="card">
-      <a href="/shoes/{{shoe.id}}">
+      <a href="{% url 'shoes_detail' shoe.id %}">
       <div class="card-content">
         <div class="card-img-container">
           <img 

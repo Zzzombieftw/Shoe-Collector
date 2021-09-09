@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Shoe
+from django.views.generic import CreateView, UpdateView, DeleteView
+
 
 # Create the view
 def home(request):
@@ -15,3 +17,8 @@ def shoes_index(request):
 def shoes_detail(request, shoe_id):
     shoe = Shoe.objects.get(id = shoe_id)
     return render(request, 'shoes/detail.html', { 'shoe': shoe })
+
+class ShoeCreate(CreateView):
+    model = Shoe
+    fields = '__all__'
+    success_url='/shoes/'

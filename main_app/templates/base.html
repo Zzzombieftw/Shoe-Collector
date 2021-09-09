@@ -27,12 +27,11 @@
     </div>
     <nav>
       <ul>
-        {% comment %} <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="{% url  'sneakers_create'%}"> Add A Sneaker</a></li>
-        <li><a href="{% url 'sneakers_index' %}">All Sneakers</a></li>
-        <li><a href="{% url 'home' %}">Login</a></li> {% endcomment %}
-        <li><a href="/about">About</a></li>
-        <li><a href="/shoes">All SHoes</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url  'shoes_create'%}"> Add A Shoe</a></li>
+        <li><a href="{% url 'shoes_index' %}">All Shoes</a></li>
+        {% comment %} <li><a href="{% url 'home' %}">Login</a></li>  {% endcomment %}
+        
       </ul>
     </nav>
   </header>
