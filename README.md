@@ -4,7 +4,7 @@
 - This app was made for sneakers head to show off the goods
 
 # Getting Started:
-Click here <https://github.com/Zzzombieftw/Shoe-Collector>
+Click here <https://shoe-collector.herokuapp.com/>
 
 # Planning Materials
 Terllo Board: <https://trello.com/b/Rd9qnjY8/unit-4-project>
