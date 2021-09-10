@@ -8,8 +8,10 @@
   .card {
     width: 275px;
     margin: 10px;
-    border: var(--borders);
-    box-shadow: var(--card-box-shadow);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
   }
   
   .card-content {
@@ -35,4 +37,13 @@
   .card p {
     margin: 5px 0;
     font-size: var(--font-reg);
+
+
   }
+
+h2{ 
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+ }

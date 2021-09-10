@@ -7,20 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Shoe Collector</title>
-   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">  
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@1,200&display=swap" rel="stylesheet">
   {% block head %}
   {% endblock %}
 </head>
 <body>
   <header>
-    <div class="header-logo-container">
       <a href="/">
          <img 
           src=" {% static 'images/place-holder.jpg' %}" 
           alt="The Cat Collector Logo"
         > 
       </a>
-    </div>
+    
     <nav>
       <ul>
       {% if user.is_authenticated %}
@@ -28,9 +30,9 @@
         <li><a href="{% url 'shoes_index' %}">All Shoes</a></li>
         <li><a href="{% url 'logout'%}">Signout</a></li>
         <li><a href="{% url 'home' %}">Login</a></li> 
-        <li><a href="{% url 'signup' %}">Sign Up</a></li>
       
       {% else %}
+        <li><a href="{% url 'signup' %}">Sign Up</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
       
       {% endif %}
