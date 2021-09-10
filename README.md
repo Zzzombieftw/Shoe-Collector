@@ -5,7 +5,7 @@ Sneaker Collector is a app where you can make and save your own sneakers to your
 
 
 # Start the App
-Click here
+Click here [Github](https://github.com/Zzzombieftw/Shoe-Collector)
 
 
 ## Technologies Used
