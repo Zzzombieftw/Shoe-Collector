@@ -29,4 +29,4 @@ ERD:
 - Allow the user to look at other people's shoes
 
 # Credit
-- Gooole Fonts
+- Gooogle Fonts
